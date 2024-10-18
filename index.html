@@ -10,20 +10,20 @@
             font-family: 'Cairo', sans-serif;
             direction: rtl;
             text-align: right;
-            background-color: #f0f4c3;
-            color: #333;
+            background-color: #121212;
+            color: #fff;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #3f51b5;
-            color: white;
+            background-color: #1f1f1f;
+            color: #ff4081;
             padding: 20px 0;
             text-align: center;
             font-size: 2em;
         }
         nav {
-            background-color: #303f9f;
+            background-color: #333;
             color: white;
             padding: 10px 20px;
             overflow: hidden;
@@ -35,22 +35,33 @@
             display: inline-block;
         }
         nav a:hover {
-            background-color: #5c6bc0;
+            background-color: #ff4081;
         }
         main {
             padding: 20px;
         }
         .timer {
-            background-color: #fff;
-            border: 2px solid #3f51b5;
+            background-color: #1f1f1f;
+            border: 2px solid #ff4081;
             border-radius: 10px;
             padding: 20px;
             text-align: center;
             font-size: 1.5em;
             margin-top: 20px;
+            color: #ff4081;
+        }
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ff4081;
+            border-radius: 10px;
         }
         footer {
-            background-color: #303f9f;
+            background-color: #333;
             color: white;
             text-align: center;
             padding: 10px 0;
@@ -82,6 +93,10 @@
             <p>المؤقت: <span id="time">00:00</span></p>
             <button onclick="startTimer()">ابدأ المؤقت</button>
             <button onclick="resetTimer()">إعادة تعيين</button>
+        </div>
+
+        <div class="image-container">
+            <img src="/attachments/939ZBv95zgTHbLiYvLcAP.jpeg" alt="قبة الصخرة">
         </div>
     </main>
     <footer>
@@ -121,7 +136,7 @@
             minutes = 0;
             seconds = 0;
             updateTimerDisplay();
-        }
+}
     </script>
 </body>
 </html>
