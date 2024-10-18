@@ -1,96 +1,128 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Study Page - Rayan Dawwas</title>
+    <title>صفحة عن الدراسة</title>
     <style>
         body {
-            background-color: #f7f7f7;
-            font-family: Arial, sans-serif;
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+            text-align: right;
+            background-color: #f0f4c3;
             color: #333;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #333;
+            background-color: #3f51b5;
             color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 2em;
+        }
+        nav {
+            background-color: #303f9f;
+            color: white;
+            padding: 10px 20px;
+            overflow: hidden;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #5c6bc0;
+        }
+        main {
+            padding: 20px;
+        }
+        .timer {
+            background-color: #fff;
+            border: 2px solid #3f51b5;
+            border-radius: 10px;
             padding: 20px;
             text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
         }
-        h1 {
-            margin: 0;
-        }
-        .container {
-            padding: 20px;
-        }
-        .subjects {
-            list-style-type: none;
-            padding: 0;
-        }
-        .subjects li {
-            background-color: #ffffff;
-            margin: 10px 0;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .subjects li h2 {
-            margin: 0;
-            color: #333;
-        }
-        .subjects li p {
-            margin: 10px 0;
-            color: #666;
-        }
-        .footer {
+        footer {
+            background-color: #303f9f;
+            color: white;
             text-align: center;
-            padding: 20px;
-            background-color: #f0f0f0;
-            color: #888;
+            padding: 10px 0;
             position: fixed;
-            width: 100%;
             bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>الدراسة والتعليم</h1>
+    </header>
+    <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#benefits">فوائد الدراسة</a>
+        <a href="#tips">نصائح دراسية</a>
+        <a href="#contact">اتصل بنا</a>
+    </nav>
+    <main>
+        <h2 id="home">الرئيسية</h2>
+        <p>مرحبًا بك في صفحة الويب الخاصة بالدراسة والتعليم، حيث نقدم لك المعلومات والموارد لمساعدتك على النجاح الأكاديمي.</p>
+        <h2 id="benefits">فوائد الدراسة</h2>
+        <p>الدراسة تساعدك على اكتساب المعرفة، تطوير المهارات، وتحقيق أهدافك المهنية.</p>
+        <h2 id="tips">نصائح دراسية</h2>
+        <p>تنظيم الوقت، تحديد الأهداف، والمراجعة الدورية هي أساس النجاح الأكاديمي.</p>
 
-<header>
-    <h1>Study Plan for Rayan Dawwas</h1>
-    <p>Your guide to efficient study sessions</p>
-</header>
+        <div class="timer" id="timer">
+            <p>المؤقت: <span id="time">00:00</span></p>
+            <button onclick="startTimer()">ابدأ المؤقت</button>
+            <button onclick="resetTimer()">إعادة تعيين</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 كل الحقوق محفوظة.</p>
+    </footer>
 
-<div class="container">
-    <h2>Subjects List</h2>
-    <ul class="subjects">
-        <li>
-            <h2>Mathematics</h2>
-            <p>Study calculus, algebra, and geometry for 2 hours.</p>
-        </li>
-        <li>
-            <h2>Physics</h2>
-            <p>Review Newton's laws and practice problems for 1.5 hours.</p>
-        </li>
-        <li>
-            <h2>English Literature</h2>
-            <p>Read the assigned novel and write a summary for 1 hour.</p>
-        </li>
-        <li>
-            <h2>Biology</h2>
-            <p>Study cell structures and functions for 1 hour.</p>
-        </li>
-        <li>
-            <h2>History</h2>
-            <p>Review the history of the Renaissance period for 1.5 hours.</p>
-        </li>
-    </ul>
-</div>
+    <script>
+        let timer;
+        let minutes = 0;
+        let seconds = 0;
+        let isRunning = false;
 
-<div class="footer">
-    <p>Stay focused and take regular breaks!</p>
-</div>
+        function updateTimerDisplay() {
+            const timeDisplay = document.getElementById('time');
+            const formattedMinutes = String(minutes).padStart(2, '0');
+            const formattedSeconds = String(seconds).padStart(2, '0');
+            timeDisplay.textContent = `${formattedMinutes}:${formattedSeconds}`;
+        }
 
+        function startTimer() {
+            if (!isRunning) {
+                isRunning = true;
+                timer = setInterval(() => {
+                    seconds++;
+                    if (seconds === 60) {
+                        seconds = 0;
+                        minutes++;
+                    }
+                    updateTimerDisplay();
+                }, 1000);
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            isRunning = false;
+            minutes = 0;
+            seconds = 0;
+            updateTimerDisplay();
+        }
+    </script>
 </body>
 </html>
+```
