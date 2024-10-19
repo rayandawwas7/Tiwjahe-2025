@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحة عن الدراسة</title>
+    <title>صفحه الريان التعليميه </title>
     <style>
         body {
             font-family: 'Cairo', sans-serif;
@@ -67,17 +67,23 @@
             text-align: center;
         }
 
+        /* تصميم الأزرار */
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
         button {
             background-color: #ff4081;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 15px 30px; /* تكبير حجم الأزرار */
             font-size: 1em;
-            border-radius: 20px;
+            border-radius: 30px; /* زيادة التقوس */
             cursor: pointer;
             margin: 10px;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            width: 120px; /* عرض الأزرار موحد */
+            display: inline-block;
         }
 
         button:hover {
@@ -126,14 +132,15 @@
             </div>
         </div>
 
-        <div style="text-align: center;">
+        <!-- تصميم الأزرار مع وضعها في المنتصف -->
+        <div class="button-container">
             <button onclick="startTimer()">ابدأ</button>
             <button onclick="stopTimer()">إيقاف</button>
             <button onclick="resetTimer()">إعادة</button>
         </div>
     </main>
     <footer>
-        <p>&copy; 2025كل الحقوق محفوظة.</p>
+        <p>&copy; 2023 كل الحقوق محفوظة.</p>
     </footer>
 
     <script>
