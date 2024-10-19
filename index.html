@@ -39,52 +39,55 @@
         main {
             padding: 20px;
         }
+
+        /* تصميم المؤقت الدائري */
         .timer {
-            background-color: #1f1f1f;
-            border: 2px solid #ff4081;
-            border-radius: 50%; /* لجعل المؤقت دائريًا */
-            padding: 40px;
+            position: relative;
             width: 200px;
             height: 200px;
+            background: conic-gradient(#ff4081 0%, #ff6493 100%);
+            border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2em;
             margin: 20px auto;
+            box-shadow: 0 0 20px rgba(255, 64, 129, 0.5);
+        }
+
+        .timer-inner {
+            width: 180px;
+            height: 180px;
+            background-color: #1f1f1f;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: #ff4081;
+            font-size: 2.5em;
             text-align: center;
-            flex-direction: column;
         }
-        .image-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border: 2px solid #ff4081;
-            border-radius: 10px;
-        }
+
         button {
             background-color: #ff4081;
             color: white;
             border: none;
-            padding: 8px 16px; /* تصغير حجم الأزرار */
-            font-size: 0.9em;
+            padding: 10px 20px;
+            font-size: 1em;
             border-radius: 20px;
             cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.3s ease; /* تأثير عند التحريك */
-            width: 100px; /* عرض موحد للأزرار */
+            margin: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 120px; /* عرض الأزرار موحد */
         }
 
         button:hover {
             background-color: #ff6493;
+            transform: scale(1.05); /* تأثير التكبير عند التمرير */
         }
 
         button:active {
             background-color: #ff4081;
-            transform: scale(0.98); /* تأثير بسيط عند النقر */
+            transform: scale(0.98); /* تأثير الضغط عند النقر */
         }
 
         footer {
@@ -116,19 +119,21 @@
         <h2 id="tips">نصائح دراسية</h2>
         <p>تنظيم الوقت، تحديد الأهداف، والمراجعة الدورية هي أساس النجاح الأكاديمي.</p>
 
-        <div class="timer" id="timer">
-            <p>المؤقت: <span id="time">00:00</span></p>
+        <!-- تصميم المؤقت -->
+        <div class="timer">
+            <div class="timer-inner" id="time">
+                00:00
+            </div>
+        </div>
+
+        <div style="text-align: center;">
             <button onclick="startTimer()">ابدأ</button>
             <button onclick="stopTimer()">إيقاف</button>
             <button onclick="resetTimer()">إعادة</button>
         </div>
-
-        <div class="image-container">
-            <img src="/attachments/939ZBv95zgTHbLiYvLcAP.jpeg" alt="قبة الصخرة">
-        </div>
     </main>
     <footer>
-        <p>&copy; 2023 كل الحقوق محفوظة.</p>
+        <p>&copy; 2025كل الحقوق محفوظة.</p>
     </footer>
 
     <script>
